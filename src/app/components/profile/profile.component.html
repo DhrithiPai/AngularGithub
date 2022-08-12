@@ -1,0 +1,54 @@
+
+<!-- <div class="container">
+    <form action="" class="search-form pt-5">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Github Username" [(ngModel)]="username" name="username" (keyup)="findProfile()">
+        </div>
+    </form>
+</div> --> 
+<!-- api rate limit exceeds if too many requests are sent thus use send button to limit requests -->
+
+<div *ngIf="user">
+
+    
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-sm-3 mh-100"><img src="{{user.avatar_url}}" alt="Profile Pic" ></div>
+            <div class="col-sm-9 details">
+                <div class="d-flex flex-column">
+                    <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-dark text-white">
+                        <h3 class="display-5">{{user.name == null ? user.login : user.name}}</h3>
+                        <p><a class="btn btn-outline-light bt-sm" href = "{{user.html_url}}" target="_blank" >View on github</a></p>
+                    </div>
+                    <div class="p-3 bg-black text-white">
+                        <h6>{{user.bio == null ? user.login: user.bio}}</h6>
+                    </div>
+                    <div class="d-flex flex-row text-white">
+                        <div class="p-2 bg-danger text-center skill-block">
+                            <h4>{{user.followers}}</h4>
+                            <h6>Followers</h6>
+                        </div>
+                        <div class="p-2 bg-success text-center skill-block">
+                            <h4>{{user.following}}</h4>
+                            <h6>Following</h6>
+                        </div>
+                        <div class="p-2 bg-secondary text-center skill-block">
+                            <h4>{{user.public_repos}}</h4>
+                            <h6>Public Repos</h6>
+                        </div>
+                        <div class="p-2 bg-primary text-center skill-block">
+                            <h4>{{user.public_gists}}</h4>
+                            <h6>Public gists</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+      
+    
+
+    
+
+</div>

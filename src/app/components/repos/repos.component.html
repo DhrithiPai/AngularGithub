@@ -1,0 +1,22 @@
+<div *ngIf="repos">
+
+    <div class="container ">
+        <div class="repo-list shadow-sm p-3 mb-2 d-inline-block w-50  " *ngFor = "let r of repos | paginate : {
+            id : 'listing_repos',
+            itemsPerPage : 10,
+            currentPage : page,
+            totalItems : repos.length 
+        }">
+
+            <h5 class="w-100">{{r.name}} </h5>
+            <p>{{r.description}}</p>
+            <a href="{{r.html_url}}" target = "_blank" class="btn btn-dark btn-md float-right">View project</a>
+            
+
+        </div>
+        <div class="mt-5">
+            <pagination-controls id="listing_repos" (pageChange)="page=$event"></pagination-controls>
+        </div>
+    </div>
+
+</div>
